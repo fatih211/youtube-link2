@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>YouTube Uygulamasına Yönlendiriliyor...</title>
-    <meta http-equiv="refresh" content="0; url=youtube://www.youtube.com/@Fenovasyon" />
+    <title>YouTube Açılıyor...</title>
+    <script>
+      function openYoutubeApp() {
+        const now = new Date().getTime();
+        window.location.href = "youtube://www.youtube.com/@Fenovasyon";
+        setTimeout(function() {
+          const later = new Date().getTime();
+          if (later - now < 1600) {
+            // Uygulama açılmadıysa tarayıcıda aç
+            window.location.href = "https://www.youtube.com/@Fenovasyon";
+          }
+        }, 1500);
+      }
+    </script>
   </head>
-  <body>
-    <p>YouTube uygulaması açılıyor...</p>
+  <body onload="openYoutubeApp()">
+    <p>YouTube uygulaması açılıyor... Açılmazsa <a href="https://www.youtube.com/@Fenovasyon">buraya tıkla</a>.</p>
   </body>
 </html>
